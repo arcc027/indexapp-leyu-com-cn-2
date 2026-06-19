@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://arcc027.github.io/indexapp-leyu-com-cn-2/sitemap.xml
