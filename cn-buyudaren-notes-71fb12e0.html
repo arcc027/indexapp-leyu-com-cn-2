@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>捕鱼达人 · 站点介绍</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f4f6f9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #1e2a3a;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    /* 卡片分区 */
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0,0,0,0.03);
+      border: 1px solid #e3e8ef;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2rem;
+      transition: transform 0.1s ease;
+    }
+    .card:hover {
+      border-color: #ccd3de;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    }
+    /* 头部 / hero 极简 */
+    .hero {
+      text-align: left;
+      padding: 1.8rem 0 0.8rem 0;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 550;
+      letter-spacing: -0.01em;
+      color: #0f1a2c;
+      margin-bottom: 0.5rem;
+    }
+    .hero .meta-line {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: #5a6b7c;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #e4e9f0;
+      padding-bottom: 1.2rem;
+      margin-bottom: 0;
+    }
+    .meta-line time { font-weight: 450; }
+    .meta-line .tag {
+      background: #eef2f7;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #2c3f55;
+    }
+    /* 导语 */
+    .lead {
+      font-size: 1.08rem;
+      background: #f8faff;
+      padding: 1.2rem 1.6rem;
+      border-left: 4px solid #5b89c0;
+      border-radius: 0 12px 12px 0;
+      margin: 0.2rem 0 1.8rem 0;
+      color: #1a2b3e;
+      font-weight: 400;
+    }
+    /* 正文段落 */
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      text-align: justify;
+    }
+    p:last-of-type {
+      margin-bottom: 0.8rem;
+    }
+    /* 引用块 */
+    blockquote {
+      background: #f1f4fa;
+      border-left: 4px solid #7e9bc0;
+      padding: 0.9rem 1.6rem;
+      margin: 1.8rem 0 1.8rem 0;
+      border-radius: 0 16px 16px 0;
+      font-size: 0.98rem;
+      color: #2b3f57;
+      font-style: normal;
+    }
+    blockquote strong {
+      font-weight: 530;
+      color: #16325c;
+    }
+    /* 特性简表 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 1.8rem;
+      margin: 1.6rem 0 1.4rem 0;
+    }
+    .feature-item {
+      background: #f9fbfd;
+      border: 1px solid #e6ecf4;
+      border-radius: 16px;
+      padding: 0.8rem 1.2rem;
+      font-size: 0.96rem;
+    }
+    .feature-item span { font-weight: 530; display: block; margin-bottom: 0.25rem; color: #1b314b; }
+    .feature-item small { color: #4f657b; line-height: 1.5; display: block; }
+    /* 引用提示（访问句） */
+    .visit-note {
+      background: #ffffff;
+      border: 1px dashed #b3c4da;
+      border-radius: 40px;
+      padding: 1rem 1.8rem;
+      text-align: center;
+      margin: 2rem 0 0.6rem 0;
+      font-size: 1rem;
+      color: #1d334d;
+    }
+    /* FAQ 摘要 */
+    .faq-mini {
+      margin-top: 1.6rem;
+      border-top: 1px solid #dce3ed;
+      padding-top: 1.5rem;
+    }
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      border: 1px solid #e2e9f2;
+      border-radius: 14px;
+      padding: 0.4rem 1rem 0.4rem 1.2rem;
+      background: #ffffff;
+    }
+    .faq-mini summary {
+      font-weight: 510;
+      cursor: pointer;
+      padding: 0.4rem 0;
+      color: #1e3650;
+    }
+    .faq-mini details p {
+      margin: 0.6rem 0 0.8rem 0;
+      font-size: 0.95rem;
+      padding-left: 0.2rem;
+      color: #2b405a;
+    }
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.8rem; }
+      .card { padding: 1.5rem 1.2rem; }
+      .hero h1 { font-size: 1.9rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .lead { padding: 1rem 1.2rem; }
+    }
+    a {
+      color: #1e5a9b;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border 0.1s;
+    }
+    a:hover { border-bottom: 1px solid #1e5a9b; }
+    .footer-note {
+      font-size: 0.88rem;
+      color: #5a6f84;
+      text-align: center;
+      margin-top: 1.5rem;
+      padding: 1rem 0 0.5rem 0;
+      border-top: 1px solid #dce3ed;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero 区 -->
+  <div class="hero">
+    <h1>捕鱼达人 · 站点与可信说明</h1>
+    <div class="meta-line">
+      <time>2025 · 精要索引</time>
+      <span class="tag">站点说明</span>
+      <span class="tag">可靠参考</span>
+    </div>
+  </div>
+
+  <!-- 主卡片：介绍 + 可信说明 -->
+  <div class="card">
+
+    <div class="lead">
+      本篇从实际使用与信息验证的角度，梳理 <a href="https://cn-buyudaren.com">捕鱼达人</a> 站点的主要定位、内容特点以及可信度参考要素，帮助新读者快速建立认知框架。
+    </div>
+
+    <p>
+      在信息密度较高的网络环境中，判断一个站点是否值得深入阅读，往往需要综合评估其内容结构、更新节奏以及引用来源的透明度。<strong>捕鱼达人</strong> 站内信息以经验分享与玩法拆解为主，不渲染极端收益，亦不引导非理性参与。整体呈现偏重过程记录与规则分析，适合对休闲娱乐领域感兴趣的读者理性浏览。
+    </p>
+
+    <p>
+      从站点架构来看，<strong>捕鱼达人</strong> 将内容分为若干逻辑章节，每一篇独立文章均附带简要背景说明。页面排版克制，广告干扰较低，阅读连贯性较好。部分文章引用了公开规则文档或常见问题解答，并在文末标注参考出处，这种处理方式有助于降低信息不确定性。
+    </p>
+
+    <!-- 引用提示块 -->
+    <blockquote>
+      <strong>可信参考提示</strong> · 站点内出现的案例、数据或操作流程均来源于用户实测反馈或公开资料汇编。建议读者在参考具体内容时，结合自身判断与多方信息交叉验证。任何涉及偏好或策略的描述均不构成确定性建议。
+    </blockquote>
+
+    <p>
+      针对站点内容的时效性，<strong>捕鱼达人</strong> 在部分文章标题或正文中标注了更新日期，方便读者区分较新与较早的内容批次。此外，站内设有简明的导航分区，可以快速定位到不同主题方向的文章索引，减少信息查找成本。
+    </p>
+
+    <!-- 特点 / 场景 (两列卡片) -->
+    <div class="feature-grid">
+      <div class="feature-item">
+        <span>📋 内容组织</span>
+        <small>按主题分类，每篇文章独立成篇，段落间有清晰层次。避免大段堆砌，适合速读与精读切换。</small>
+      </div>
+      <div class="feature-item">
+        <span>🔍 引用透明</span>
+        <small>关键数据或规则说明均标注来源（如官方文档、用户实测统计），便于核实原始上下文。</small>
+      </div>
+      <div class="feature-item">
+        <span>🧩 阅读体验</span>
+        <small>浅色背景+适中行距，字体大小与对比度经过适配，桌面与移动设备均保持可读性。</small>
+      </div>
+      <div class="feature-item">
+        <span>⚖️ 表述克制</span>
+        <small>不出现浮夸承诺或诱导性措辞，侧重描述而非鼓吹。对不确定性使用“可能”“部分情况下”等限定。</small>
+      </div>
+    </div>
+
+    <p>
+      从信息获取效率出发，<a href="https://cn-buyudaren.com">捕鱼达人</a> 站内文章平均长度控制在 800-1500 字之间，核心观点通常在前三段出现。适合在碎片时间内完成一篇内容的浏览与理解。对于希望深入了解背景的读者，文末往往附带扩展阅读链接或相关术语解释。
+    </p>
+
+    <!-- 访问句 / 提示 -->
+    <div class="visit-note">
+      📌 如需进一步查看完整文章列表或了解特定主题，可直接浏览 <a href="https://cn-buyudaren.com">捕鱼达人</a> 首页，按导航分类索引即可。
+    </div>
+
+    <!-- FAQ 摘要（简洁版） -->
+    <div class="faq-mini">
+      <details>
+        <summary>❓ 站点内容是否定期更新？</summary>
+        <p>根据页面记录，<strong>捕鱼达人</strong> 保持月度或季度更新节奏，内容较新。部分经典文章内会注明最后修订时间，可据此判断时效性。</p>
+      </details>
+      <details>
+        <summary>❓ 是否有社区或反馈渠道？</summary>
+        <p>站内暂未设置公开评论区，但每篇文章底部均提供指向站长的联系邮箱（在关于页面可见），可针对具体内容提出疑问或修正建议。</p>
+      </details>
+      <details>
+        <summary>❓ 推荐从哪篇文章开始阅读？</summary>
+        <p>对于初次访问的读者，建议从“玩法概述”或“常见规则解读”系列入手，这类文章背景完整、术语较少，便于建立基础认知。</p>
+      </details>
+    </div>
+
+  </div> <!-- /card -->
+
+  <!-- 简短脚注 -->
+  <div class="footer-note">
+    <span>站点索引说明 · 内容仅供参考，不构成任何形式的引导或承诺</span>
+  </div>
+
+</div> <!-- /container -->
+</body>
+</html>
