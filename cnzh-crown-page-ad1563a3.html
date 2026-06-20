@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皇冠体育 · 再次遇见，持续关注</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9fafc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #1e2229;
+            padding: 1.5rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        /* 头部区域——留白与克制 */
+        .hero {
+            margin: 2.5rem 0 3rem 0;
+        }
+
+        .hero-headline {
+            font-size: 2.2rem;
+            font-weight: 350;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            color: #14181f;
+        }
+
+        .hero-headline span {
+            font-weight: 500;
+        }
+
+        .hero-sub {
+            margin-top: 1.2rem;
+            color: #4c535f;
+            font-size: 1.05rem;
+            max-width: 90%;
+            border-left: 2px solid #dce0e6;
+            padding-left: 1.2rem;
+        }
+
+        /* 信息卡片网格 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            margin: 2.8rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.2s ease;
+            border: 1px solid #eceff3;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #191e27;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-title .emoji-marker {
+            font-size: 1.1rem;
+            margin-right: 4px;
+            opacity: 0.7;
+        }
+
+        .card p {
+            color: #3b4450;
+            font-size: 0.96rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card .quiet-note {
+            color: #757f8d;
+            font-size: 0.88rem;
+            margin-top: 0.6rem;
+            border-top: 1px dashed #e6eaef;
+            padding-top: 0.6rem;
+        }
+
+        /* 自然链接嵌入段落 */
+        .natural-link-section {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0;
+            border: 1px solid #eceff3;
+        }
+
+        .natural-link-section p {
+            color: #262d38;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .natural-link-section p a {
+            color: #1b2a4a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #c8cfda;
+            padding-bottom: 1px;
+            transition: border-color 0.15s;
+        }
+
+        .natural-link-section p a:hover {
+            border-bottom-color: #1b2a4a;
+        }
+
+        .natural-link-section .link-standalone {
+            font-size: 0.95rem;
+            color: #3b4450;
+        }
+
+        /* 简短 FAQ 摘要 */
+        .faq-summary {
+            margin: 2.8rem 0 2rem;
+        }
+
+        .faq-item {
+            display: flex;
+            flex-direction: column;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #eef1f5;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            font-size: 0.96rem;
+            color: #1b222e;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #5a6575;
+            font-size: 0.92rem;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            margin-top: 3.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e7ed;
+            font-size: 0.82rem;
+            color: #7d8899;
+            text-align: left;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-note a {
+            color: #4c5b70;
+            text-decoration: none;
+            border-bottom: 1px solid #d7dde5;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #4c5b70;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 520px) {
+            body {
+                padding: 0.8rem 0.8rem;
+            }
+
+            .hero-headline {
+                font-size: 1.7rem;
+            }
+
+            .hero-sub {
+                font-size: 0.95rem;
+                padding-left: 0.9rem;
+            }
+
+            .card {
+                padding: 1.3rem 1.2rem;
+                border-radius: 16px;
+            }
+
+            .natural-link-section {
+                padding: 1.3rem 1.2rem;
+            }
+
+            .card-grid {
+                gap: 1.2rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero-headline {
+                font-size: 2.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1 class="hero-headline">
+            再次回来·<span>皇冠体育</span>
+        </h1>
+        <div class="hero-sub">
+            收藏夹里的地址，有时会沉淀为一种习惯。<br>
+            这个页面不是为了催促，而是为了在你想要回来时，更容易找到起点。
+        </div>
+    </div>
+
+    <!-- 信息卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-title">
+                <span class="emoji-marker">◈</span> 主视觉 · 延续与留白
+            </div>
+            <p>页面没有繁复的装饰，只保留了干净的空间和清晰的指引。无论是从桌面还是手机重新打开，它都保持一致的克制质感——正如再次访问时所期待的那样：不需要重新适应。</p>
+            <div class="quiet-note">版式以留白呼吸为主，标题层级一眼可辨。</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <span class="emoji-marker">◈</span> 用途卡片 · 日常场景
+            </div>
+            <p>深夜想浏览体育资讯？工作间隙想快速回顾赛程？或者只是单纯想保存一个稳定的入口。页面围绕这些真实、零碎的访问场景设计，让你每次打开都觉得自然顺手。</p>
+            <div class="quiet-note">无需额外操作，页面本身就是导航。</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <span class="emoji-marker">◈</span> 适合人群
+            </div>
+            <p>对体育内容有持续兴趣的用户、习惯将常用网站加入书签的朋友、以及那些不喜欢被弹窗和过度营销打扰的人。这里没有喧嚣，只有一处安静、可依赖的连接点。</p>
+            <div class="quiet-note">如果你恰好是这类人，这个页面兴许会合你胃口。</div>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 -->
+    <div class="natural-link-section">
+        <p>
+            很多人第一次接触<a href="https://cnzh-crown.com">皇冠体育</a>是因为朋友推荐，或者偶然看到一场比赛直播。后来慢慢变成了一个习惯性的去处——看看联赛数据、关注球队动态，或者仅仅是打开页面感受那种熟悉的节奏。
+        </p>
+        <p>
+            如果你已经把它加入书签，不妨抽空再回去看看，界面和内容或许已有细微优化。对于新朋友，<a href="https://cnzh-crown.com">皇冠体育</a>一直以清晰的信息结构和克制的视觉风格吸引着那些真正热爱体育的人。
+        </p>
+        <p class="link-standalone">
+            页面没有任何强制注册或诱导弹窗，它只是一个安静的入口，在你想要的时候为你敞开。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <div class="faq-item">
+            <span class="faq-q">为什么再次访问时页面感觉不同了？</span>
+            <span class="faq-a">网站会不定期进行细节调整，但整体风格始终以简洁、直观为核心，不会有突兀的变化。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">收藏的链接会失效吗？</span>
+            <span class="faq-a">主域名长期稳定，不过建议偶尔回来看看，确保书签始终有效。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">手机和电脑上体验一致吗？</span>
+            <span class="faq-a">完全响应式适配，窄屏宽屏都能获得良好的阅读和浏览体验。</span>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>一个干净、克制的重新访问入口 · <a href="https://cnzh-crown.com">皇冠体育</a> · 持续关注，不必匆忙</span>
+    </div>
+
+</div>
+</body>
+</html>
